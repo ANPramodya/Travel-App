@@ -1,6 +1,12 @@
+<<<<<<< Updated upstream
 import { Dimensions } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
+=======
+import {Dimensions} from 'react-native';
+
+const {width, height} = Dimensions.get('window');
+>>>>>>> Stashed changes
 
 export const colors = {
   primary: '#070f18',
@@ -39,7 +45,10 @@ export const sizes = {
   h2: 24,
   h3: 18,
   body: 14,
+<<<<<<< Updated upstream
   caption: 12,
+=======
+>>>>>>> Stashed changes
   radius: 16,
 };
 
