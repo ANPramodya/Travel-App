@@ -4,7 +4,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import HomeScreen from "../screens/HomeScreen";
 import TabNavigator from "./TabNavigator";
 import { StatusBar } from "react-native";
-
 const Stack = createStackNavigator();
 
 const MainNavigator = () => {

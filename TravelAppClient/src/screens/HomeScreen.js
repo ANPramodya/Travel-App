@@ -4,6 +4,9 @@ import { colors } from "../constants/theme";
 import MainHeader from "../components/MainHeader";
 import ScreenHeader from "../components/ScreenHeader";
 import TopPlacesCarousel from "../components/TopPlacesCarousel";
+import SectionHeader from "../components/SectionHeader";
+import TripsList from "../components/TripsList";
+import { PLACES, TOP_PLACES } from "../data";
 
 const HomeScreen = () => {
   return (
@@ -12,6 +15,12 @@ const HomeScreen = () => {
       <ScreenHeader mainTitle="Find Your" secondTitle="Dream Trip" />
       <ScrollView showsVerticalScrollIndicator={false}>
         <TopPlacesCarousel list={TOP_PLACES} />
+        <SectionHeader
+          title="Popular Trips"
+          buttonTitle="See All"
+          OnPress={() => {}}
+        />
+        <TripsList list={PLACES} />
       </ScrollView>
     </View>
   );
