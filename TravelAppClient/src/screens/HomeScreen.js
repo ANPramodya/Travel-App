@@ -1,4 +1,5 @@
 import React from "react";
+
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { colors } from "../constants/theme";
 import MainHeader from "../components/MainHeader";
@@ -22,9 +23,12 @@ const HomeScreen = () => {
         />
         <TripsList list={PLACES} />
       </ScrollView>
+
+
     </View>
   );
 };
+
 
 const styles = StyleSheet.create({
   container: {
@@ -32,5 +36,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.light,
   },
 });
+
 
 export default HomeScreen;
