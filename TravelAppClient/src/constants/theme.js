@@ -12,6 +12,7 @@ export const colors = {
   darkGradient: '#4D5DFB',
   lightGradient: '#08C8F6',
   midgradient: '#0095FF',
+  darkGray:'#666666'
 };
 
 export const shadow = {
@@ -72,6 +73,12 @@ export const cs=StyleSheet.create({
   rowCenter:{
     flexDirection: "row",
     alignItems: "center"
+  },
+  sectionContainer: {
+    paddingVertical: 24,
+    paddingHorizontal: 32,
+    marginBottom: 8,
+    backgroundColor: colors.darkGray,
   },
   subTitle: {
     fontWeight: '600',

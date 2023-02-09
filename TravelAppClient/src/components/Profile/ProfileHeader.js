@@ -56,7 +56,8 @@ const styles = StyleSheet.create({
     },
     container: {
         marginHorizontal: 32,
-        paddingVertical: 32,
+        paddingTop: 32,
+        paddingBottom: 72,
     },
     imageContainer:{
         ...cs.center,
