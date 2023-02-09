@@ -72,7 +72,7 @@ export const cs=StyleSheet.create({
   },
   rowCenter:{
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
   },
   sectionContainer: {
     paddingVertical: 24,
@@ -84,6 +84,11 @@ export const cs=StyleSheet.create({
     fontWeight: '700',
     color: colors.primary,
     fontSize: 16,
+  },
+  smallText: {
+    fontSize: 12,
+    fontWeight: '800',
+    color: colors.darkGray,
   },
   subTitle: {
     fontWeight: '600',
