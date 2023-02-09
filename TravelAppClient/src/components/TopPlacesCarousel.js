@@ -8,6 +8,7 @@ import {
   Image,
 } from "react-native";
 import { colors, shadow, sizes, spacing } from "../constants/theme";
+import FavoriteButton from "./shared/FavoriteButton";
 
 const CARD_WIDTH = sizes.width - 100;
 const CARD_HEIGHT = 200;
@@ -27,11 +28,11 @@ const TopPlacesCarousel = ({ list }) => {
           <TouchableOpacity
             style={{
               marginLeft: spacing.l,
-              marginRight: index === list.length - 1 ? spacing.l : 0,
+              //marginRight: index === list.length - 1 ? spacing.l : 0,
             }}
           >
             <View style={[styles.card, shadow.dark]}>
-              <FavouriteButton style={styles.favourite} />
+              <FavoriteButton style={styles.favourite} />
               <View style={styles.imageBox}>
                 <Image source={item.image} style={styles.image} />
                 <Text>{item.title}</Text>

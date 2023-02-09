@@ -1,5 +1,8 @@
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { sizes, spacing } from "../constants/theme";
+import Icon from "./icon";
 
 const MainHeader = ({ title }) => {
   const insets = useSafeAreaInsets();
@@ -17,7 +20,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingHorizontal: SVGFESpecularLightingElement.l,
+    paddingHorizontal: spacing.l,
   },
   title: {
     fontSize: sizes.h3,
