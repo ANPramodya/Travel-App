@@ -1,22 +1,22 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, StatusBar } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
+import ProfileHeader from "../components/Profile/ProfileHeader";
 import { colors } from '../constants/theme';
+
 
 const ProfileScreen = () => {
   return (
-    <View style={styles.Conatainer}>
-      <Text>Profile Screen</Text>
-      <Text>Profile Screen</Text>
-      <Text>Profile Screen</Text>
-    </View>
+    <ScrollView style={styles.Conatainer}>
+      <StatusBar barStyle={'light-content'}/>
+        <ProfileHeader/>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   Conatainer:{
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: colors.white,
   }
 })
 

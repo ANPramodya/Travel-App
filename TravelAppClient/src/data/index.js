@@ -275,3 +275,9 @@ export const SEARCH_HOTELS = [...Object.values(HOTELS)].map((item) => ({
 }));
 
 export const SEARCH_ALL = [...SEARCH_PLACES, ...SEARCH_HOTELS];
+
+export const traveler={
+  username: 'Jane Doe',
+  picture:  require('../../assets/images/users/32.jpeg'),
+  location: 'Kalutara, Sri Lanka',
+}
