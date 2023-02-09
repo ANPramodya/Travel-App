@@ -5,7 +5,7 @@ import { colors, cs } from '../../constants/theme';
 function ProfileStatus() {
     return (
         <View style={styles.container} >
-            <View style={[styles.statContainer]}>
+            <View style={[styles.statContainer]}>                                                       
                 <Text style={styles.statNumber}>12K</Text>
                 <Text style={styles.stat}>Followers</Text>
             </View>
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     },
     statNumber:{
         fontsize: 24,
-        fontWeight: '800',
+        fontWeight: '900',
         color: colors.white,
     },
 })

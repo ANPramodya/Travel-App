@@ -280,4 +280,5 @@ export const traveler={
   username: 'Jane Doe',
   picture:  require('../../assets/images/users/32.jpeg'),
   location: 'Kalutara, Sri Lanka',
+  aboutMe: 'Once the Travel bug bites there is no known antidote, and I know that I shall be happily infected until the end of my life. Travel opens your heart, broadens your mind, and fills your life with stories to tell.',
 }

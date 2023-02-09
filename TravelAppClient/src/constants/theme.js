@@ -80,6 +80,11 @@ export const cs=StyleSheet.create({
     marginBottom: 8,
     backgroundColor: colors.darkGray,
   },
+  sectionTitle: {
+    fontWeight: '700',
+    color: colors.primary,
+    fontSize: 16,
+  },
   subTitle: {
     fontWeight: '600',
     textTransform: 'uppercase',
