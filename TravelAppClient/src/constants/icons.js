@@ -19,10 +19,7 @@ export default {
   Filter,
   Back,
   Profile,
-<<<<<<< Updated upstream
   Hamburger,
   Search,
   Notification,
-=======
->>>>>>> Stashed changes
 };

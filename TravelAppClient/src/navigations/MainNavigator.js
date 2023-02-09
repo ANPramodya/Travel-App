@@ -11,11 +11,7 @@ const Stack = createStackNavigator();
 const MainNavigator = () => {
   return (
     <NavigationContainer>
-<<<<<<< Updated upstream
       <StatusBar hidden />
-=======
-      {/* <StatusBar hidden /> */}
->>>>>>> Stashed changes
 
       <Stack.Navigator>
         <Stack.Screen
