@@ -8,13 +8,13 @@ const CARD_HEIGHT = 220;
 
 const TripsList = ({ list }) => {
   return (
-    <View>
+    <View style={styles.container}>
       {list.map((item, index) => {
         return (
           <TouchableOpacity style={styles.cardContainer}>
             <View style={(styles.card, shadow.light)} key={item.id}>
               <View style={styles.imageBox}>
-                <Image style={styles.image} source={item.index} />
+                <Image style={styles.image} source={item.image} />
               </View>
               <View style={styles.footer}>
                 <View style={styles.titlebox}>
