@@ -5,6 +5,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import Location from "../components/Profile/Location";
 import ProfileAboutMe from "../components/Profile/ProfileAboutMe";
 import ProfileHeader from "../components/Profile/ProfileHeader";
+import ProfilePhotos from "../components/Profile/ProfilePhotos";
 import ProfileStatus from "../components/Profile/ProfileStatus";
 import { colors } from '../constants/theme';
 
@@ -17,6 +18,7 @@ const ProfileScreen = () => {
         <ProfileStatus/>
         <ProfileAboutMe/>
         <Location/>
+        <ProfilePhotos/>
     </ScrollView>
   );
 };

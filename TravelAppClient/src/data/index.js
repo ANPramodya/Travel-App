@@ -282,4 +282,16 @@ export const traveler={
   location: 'Kalutara, Sri Lanka',
   aboutMe: 'Once the Travel bug bites there is no known antidote, and I know that I shall be happily infected until the end of my life. Travel opens your heart, broadens your mind, and fills your life with stories to tell.',
   distance: '102',
-}
+};
+ export const travelPhotos=[
+   require('../../assets/images/trips/ella-1.jpg'),
+   require('../../assets/images/trips/ella-2.jpg'),
+   require('../../assets/images/trips/ella-3.jpg'),
+   require('../../assets/images/trips/mirissa-1.jpg'),
+   require('../../assets/images/trips/mirissa-2.jpg'),
+   require('../../assets/images/trips/mirissa-3.jpg'),
+   require('../../assets/images/trips/sigiriya-1.jpg'),
+   require('../../assets/images/trips/yala-1.jpg'),
+
+ ]
+ 
