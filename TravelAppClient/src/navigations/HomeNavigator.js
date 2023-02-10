@@ -3,6 +3,7 @@ import { createSharedElementStackNavigator } from "react-navigation-shared-eleme
 import HomeScreen from "../screens/HomeScreen";
 
 const Stack = createSharedElementStackNavigator();
+
 const HomeNavigator = () => {
   return (
     <Stack.Navigator>
@@ -13,7 +14,9 @@ const HomeNavigator = () => {
           headerShown: false,
           useNativeDriver: true,
         }}
+
       ></Stack.Screen>
+
     </Stack.Navigator>
   );
 };
