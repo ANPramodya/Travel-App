@@ -8,6 +8,9 @@ import {
   Image,
 } from "react-native";
 import { colors, shadow, sizes, spacing } from "../constants/theme";
+import FavouriteButton from "./FavouriteButton";
+import { useNavigation } from "@react-navigation/native";
+import { SharedElement } from "react-navigation-shared-element";
 import FavoriteButton from "./shared/FavoriteButton";
 
 const CARD_WIDTH = sizes.width - 100;
@@ -15,6 +18,7 @@ const CARD_HEIGHT = 200;
 const CARD_WIDTH_SPACING = CARD_WIDTH + spacing.l;
 
 const TopPlacesCarousel = ({ list }) => {
+  const navigation = useNavigation();
   return (
     <FlatList
       data={list}
@@ -26,12 +30,21 @@ const TopPlacesCarousel = ({ list }) => {
       renderItem={({ item, index: number }) => {
         return (
           <TouchableOpacity
+            onPress={() => navigation.navigate("TripDetails", { trip: item })}
             style={{
               marginLeft: spacing.l,
               //marginRight: index === list.length - 1 ? spacing.l : 0,
             }}
           >
             <View style={[styles.card, shadow.dark]}>
+              <FavouriteButton style={styles.favourite} />
+              <SharedElement id={`trip.${item.id}.image`}>
+                <View style={styles.imageBox}>
+                  <Image source={item.image} style={styles.image} />
+                  <Text>{item.title}</Text>
+                </View>
+              </SharedElement>
+
               <FavoriteButton style={styles.favourite} />
               <View style={styles.imageBox}>
                 <Image source={item.image} style={styles.image} />
@@ -54,6 +67,8 @@ const styles = StyleSheet.create({
     width: CARD_WIDTH,
     height: CARD_HEIGHT,
     marginVertical: 10,
+    backgroundColor: colors.white,
+    borderRadius: sizes.radius,
   },
   favourite: {
     position: "absolute",
