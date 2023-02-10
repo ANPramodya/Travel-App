@@ -18,6 +18,7 @@ const CARD_HEIGHT = 200;
 const CARD_WIDTH_SPACING = CARD_WIDTH + spacing.l;
 
 const TopPlacesCarousel = ({ list }) => {
+  const navigation = useNavigation();
   return (
     <FlatList
       data={list}
@@ -29,6 +30,9 @@ const TopPlacesCarousel = ({ list }) => {
       renderItem={({ item, index: number }) => {
         return (
           <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("TripDetails", { trip: item });
+            }}
             style={{
               marginLeft: spacing.l,
               //marginRight: index === list.length - 1 ? spacing.l : 0,
@@ -36,10 +40,13 @@ const TopPlacesCarousel = ({ list }) => {
           >
             <View style={[styles.card, shadow.dark]}>
               <FavoriteButton style={styles.favourite} />
-              <SharedElement id={`trip.${item.id}.image`}>
+              <SharedElement
+                id={`trip.${item.id}.image`}
+                style={StyleSheet.absoluteFillObject}
+              >
                 <View style={styles.imageBox}>
                   <Image source={item.image} style={styles.image} />
-                  {/* <Text>{item.title}</Text> */}
+                  <Text>{item.title}</Text>
                 </View>
               </SharedElement>
 
@@ -65,6 +72,8 @@ const styles = StyleSheet.create({
     width: CARD_WIDTH,
     height: CARD_HEIGHT,
     marginVertical: 10,
+    backgroundColor: colors.white,
+    borderRadius: sizes.radius,
   },
   favourite: {
     position: "absolute",

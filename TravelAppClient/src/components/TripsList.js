@@ -10,6 +10,7 @@ const CARD_WIDTH = sizes.width / 2 - (spacing.l + spacing.l / 2);
 const CARD_HEIGHT = 220;
 
 const TripsList = ({ list }) => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       {list.map((item, index) => {

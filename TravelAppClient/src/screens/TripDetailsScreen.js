@@ -25,18 +25,18 @@ const TripDetailsScreen = ({ navigation, route }) => {
           onPress={navigation.goBack}
         />
       </Animatable.View>
-      {/* <SharedElement
+      <SharedElement
         id={`trip.${trip.id}.image`}
         style={StyleSheet.absoluteFillObject}
-      > */}
-      <View style={[StyleSheet.absoluteFillObject, styles.imageBox]}>
-        <Image
-          source={trip.image}
-          style={[StyleSheet.absoluteFillObject, styles.image]}
-        />
-      </View>
-      {/* </SharedElement> */}
-      {/* <TripDetailsCard trip={trip} /> */}
+      >
+        <View style={[StyleSheet.absoluteFillObject, styles.imageBox]}>
+          <Image
+            source={trip.image}
+            style={[StyleSheet.absoluteFillObject, styles.image]}
+          />
+        </View>
+      </SharedElement>
+      <TripDetailsCard trip={trip} />
     </View>
   );
 };
