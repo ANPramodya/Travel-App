@@ -9,8 +9,6 @@ import { createSharedElementStackNavigator } from "react-navigation-shared-eleme
 const Stack = createSharedElementStackNavigator();
 
 
-import { StatusBar } from "react-native";
-
 const MainNavigator = () => {
   return (
     <NavigationContainer>
@@ -26,14 +24,16 @@ const MainNavigator = () => {
           }}
         />
         <Stack.Screen
-          name="TipDetails"
+
+          name="TripDetails"
+
           component={TripDetailsScreen}
           options={{
             headerShown: false,
             useNativeDriver: true,
-            cardStyleInterpolator: {
-              current: { progress: Animated.AnimatedInterpolation },
-            }({
+
+            cardStyleInterpolator: ({ current: { progress } }) => ({
+
               cardStyle: {
                 opacity: progress,
               },
@@ -46,3 +46,16 @@ const MainNavigator = () => {
 };
 
 export default MainNavigator;
+
+// cardStyleInterpolator:({current : {progress : Animated.AnimatedInterpolation}}) => ({
+//   cardStyle: {
+//     opacity: progress
+//   }
+// })
+// cardStyleInterpolator: ({
+//   current: { progress: Animated.AnimatedInterpolation },
+// })  ({
+//   cardStyle: {
+//     opacity: progress,
+//   },
+// }),

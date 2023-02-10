@@ -1,9 +1,12 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
-import { sizes, colors, spacing } from "../constants/theme";
+
+//import { View } from "react-native-animatable";
+import { StyleSheet, View, Text } from "react-native";
+import { colors, shadow, sizes, spacing } from "../constants/theme";
 import * as Animatable from "react-native-animatable";
 
-const TripDetailsCard = ({ trip }) => {
+const TripDeatialsCard = ({ trip }) => {
+
   return (
     <View style={styles.card}>
       <Animatable.View
@@ -43,4 +46,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TripDetailsCard;
+
+export default TripDeatialsCard;
+
+

@@ -1,10 +1,15 @@
 import React from "react";
 import { View, StyleSheet, Image } from "react-native";
-import { sizes } from "../constants/theme";
+
+import { sizes, spacing, colors } from "../constants/theme";
+
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { SharedElement } from "react-navigation-shared-element";
 import TripDetailsCard from "../components/TripDetailsCard";
 import * as Animatable from "react-native-animatable";
+
+import Icon from "../components/shared/Icon";
+
 
 const TripDetailsScreen = ({ navigation, route }) => {
   const insets = useSafeAreaInsets();
