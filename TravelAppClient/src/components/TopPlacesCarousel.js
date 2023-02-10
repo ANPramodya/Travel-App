@@ -8,6 +8,9 @@ import {
   Image,
 } from "react-native";
 import { colors, shadow, sizes, spacing } from "../constants/theme";
+
+import { useNavigation } from "@react-navigation/native";
+import { SharedElement } from "react-navigation-shared-element";
 import FavoriteButton from "./shared/FavoriteButton";
 
 const CARD_WIDTH = sizes.width - 100;
@@ -32,6 +35,14 @@ const TopPlacesCarousel = ({ list }) => {
             }}
           >
             <View style={[styles.card, shadow.dark]}>
+              <FavoriteButton style={styles.favourite} />
+              <SharedElement id={`trip.${item.id}.image`}>
+                <View style={styles.imageBox}>
+                  <Image source={item.image} style={styles.image} />
+                  {/* <Text>{item.title}</Text> */}
+                </View>
+              </SharedElement>
+
               <FavoriteButton style={styles.favourite} />
               <View style={styles.imageBox}>
                 <Image source={item.image} style={styles.image} />
