@@ -11,6 +11,7 @@ import { colors, shadow, sizes, spacing } from "../constants/theme";
 import FavouriteButton from "./FavouriteButton";
 import { useNavigation } from "@react-navigation/native";
 import { SharedElement } from "react-navigation-shared-element";
+import FavoriteButton from "./shared/FavoriteButton";
 
 const CARD_WIDTH = sizes.width - 100;
 const CARD_HEIGHT = 200;
@@ -32,7 +33,7 @@ const TopPlacesCarousel = ({ list }) => {
             onPress={() => navigation.navigate("TripDetails", { trip: item })}
             style={{
               marginLeft: spacing.l,
-              marginRight: index === list.length - 1 ? spacing.l : 0,
+              //marginRight: index === list.length - 1 ? spacing.l : 0,
             }}
           >
             <View style={[styles.card, shadow.dark]}>
@@ -43,6 +44,12 @@ const TopPlacesCarousel = ({ list }) => {
                   <Text>{item.title}</Text>
                 </View>
               </SharedElement>
+
+              <FavoriteButton style={styles.favourite} />
+              <View style={styles.imageBox}>
+                <Image source={item.image} style={styles.image} />
+                <Text>{item.title}</Text>
+              </View>
               <View style={styles.titleBox}>
                 <Text style={styles.title}>{item.title}</Text>
                 <Text style={styles.location}>{item.location}</Text>

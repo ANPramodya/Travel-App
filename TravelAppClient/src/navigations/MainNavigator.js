@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import TabNavigator from "./TabNavigator";
@@ -8,10 +8,14 @@ import { createSharedElementStackNavigator } from "react-navigation-shared-eleme
 
 const Stack = createSharedElementStackNavigator();
 
+
+import { StatusBar } from "react-native";
+
 const MainNavigator = () => {
   return (
     <NavigationContainer>
       <StatusBar hidden />
+
       <Stack.Navigator>
         <Stack.Screen
           name="Root"

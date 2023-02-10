@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  travelapp-db:
+    image: postgres:13
+    ports:
+      - 5430:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: nest
+    networks:
+      - spark
+networks:
+  spark:

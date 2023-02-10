@@ -3,6 +3,8 @@ import { Image, View, StyleSheet, TouchableOpacity, Text } from "react-native";
 import { colors, shadow, sizes, spacing } from "../constants/theme";
 import FavouriteButton from "./FavouriteButton";
 import { useNavigation } from "@react-navigation/native";
+import FavouriteButton from "../components/shared/FavoriteButton";
+
 
 const CARD_WIDTH = sizes.width / 2 - (spacing.l + spacing.l / 2);
 const CARD_HEIGHT = 220;
@@ -10,7 +12,7 @@ const CARD_HEIGHT = 220;
 const TripsList = ({ list }) => {
   const navigation = useNavigation();
   return (
-    <View>
+    <View style={styles.container}>
       {list.map((item, index) => {
         return (
           <TouchableOpacity
@@ -24,6 +26,11 @@ const TripsList = ({ list }) => {
                   <Image style={styles.image} source={item.index} />
                 </View>
               </SharedElement>
+          <TouchableOpacity style={styles.cardContainer}>
+            <View style={(styles.card, shadow.light)} key={item.id}>
+              <View style={styles.imageBox}>
+                <Image style={styles.image} source={item.image} />
+              </View>
               <View style={styles.footer}>
                 <View style={styles.titlebox}>
                   <Text style={styles.title}>{item.title}</Text>
