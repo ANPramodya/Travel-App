@@ -2,7 +2,8 @@ import React from 'react';
 import { Text, View, Image, StyleSheet} from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 
-import { colors, cs } from '../../constants/theme';
+import { colors } from '../../constants/theme';
+import { cs } from '../../constants/constStyles';
 import { traveler } from '../../data';
 import icons from '../../constants/icons';
 

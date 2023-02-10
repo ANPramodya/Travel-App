@@ -1,7 +1,8 @@
 import React from 'react';
 import { Text,StyleSheet, Image, View } from 'react-native';
 
-import { colors, cs } from '../../constants/theme';
+import { colors } from '../../constants/theme';
+import { cs } from '../../constants/constStyles';
 import { travelPhotos } from '../../data';
 
 function ProfilePhotos() {

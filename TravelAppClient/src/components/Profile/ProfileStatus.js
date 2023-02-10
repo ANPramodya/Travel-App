@@ -1,23 +1,25 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import { colors, cs } from '../../constants/theme';
+import { colors } from '../../constants/theme';
+import { cs } from '../../constants/constStyles';
+import { traveler } from '../../data';
 
 function ProfileStatus() {
     return (
         <View style={styles.container} >
             <View style={[styles.statContainer]}>                                                       
-                <Text style={styles.statNumber}>12K</Text>
+                <Text style={styles.statNumber}>{traveler.followersCount}</Text>
                 <Text style={styles.stat}>Followers</Text>
             </View>
 
             <View style={[styles.statContainer, styles.divider]}>
-                <Text style={styles.statNumber}>12K</Text>
-                <Text style={styles.stat}>Followers</Text>
+                <Text style={styles.statNumber}>{traveler.followingsCount}</Text>
+                <Text style={styles.stat}>Following</Text>
             </View>
 
             <View style={styles.statContainer}>
-                <Text style={styles.statNumber}>12K</Text>
-                <Text style={styles.stat}>Followers</Text>
+                <Text style={styles.statNumber}>{traveler.trips}</Text>
+                <Text style={styles.stat}>Trips</Text>
             </View>
         </View>
     );

@@ -3,7 +3,8 @@ import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import {Entypo, Ionicons} from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 
-import { colors, cs } from '../../constants/theme';
+import { colors } from '../../constants/theme';
+import { cs } from '../../constants/constStyles';
 import Icon from '../shared/Icon';
 import { traveler } from '../../data';
 

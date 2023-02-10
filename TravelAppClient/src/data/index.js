@@ -277,11 +277,15 @@ export const SEARCH_HOTELS = [...Object.values(HOTELS)].map((item) => ({
 export const SEARCH_ALL = [...SEARCH_PLACES, ...SEARCH_HOTELS];
 
 export const traveler={
+  id:1,
   username: 'Jane Doe',
   picture:  require('../../assets/images/users/32.jpeg'),
   location: 'Kalutara, Sri Lanka',
   aboutMe: 'Once the Travel bug bites there is no known antidote, and I know that I shall be happily infected until the end of my life. Travel opens your heart, broadens your mind, and fills your life with stories to tell.',
   distance: '102',
+  followersCount: '11.7K',
+  followingsCount: '1.4K',
+  trips: '24',
 };
  export const travelPhotos=[
    require('../../assets/images/trips/ella-1.jpg'),

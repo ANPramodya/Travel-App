@@ -1,7 +1,8 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 
-import { colors, cs } from '../../constants/theme';
+import { colors } from '../../constants/theme';
+import { cs } from '../../constants/constStyles';
 import { traveler } from '../../data';
 
 function ProfileAboutMe(props) {
