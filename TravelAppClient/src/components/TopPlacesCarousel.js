@@ -30,18 +30,16 @@ const TopPlacesCarousel = ({ list }) => {
       renderItem={({ item, index: number }) => {
         return (
           <TouchableOpacity
-
             onPress={() => {
               navigation.navigate("TripDetails", { trip: item });
             }}
-
             style={{
               marginLeft: spacing.l,
               //marginRight: index === list.length - 1 ? spacing.l : 0,
             }}
           >
             <View style={[styles.card, shadow.dark]}>
-              <FavouriteButton style={styles.favourite} />
+              <FavoriteButton style={styles.favourite} />
               <SharedElement id={`trip.${item.id}.image`}>
                 <View style={styles.imageBox}>
                   <Image source={item.image} style={styles.image} />
