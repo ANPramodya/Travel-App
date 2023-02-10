@@ -1,4 +1,4 @@
-import { Dimensions } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 
 const { width, height } = Dimensions.get("window");
 
@@ -9,6 +9,10 @@ export const colors = {
   light: "#fbfbfb",
   white: "#fff",
   black: "#000",
+  darkGradient: '#09C6F9',
+  lightGradient: '#045DE9',
+  midgradient: '#0095FF',
+  darkGray:'#666666'
 };
 
 export const shadow = {
@@ -49,3 +53,4 @@ export const spacing = {
   l: 24,
   xl: 40,
 };
+

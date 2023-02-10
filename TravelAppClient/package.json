@@ -28,8 +28,8 @@
     "react-native-screens": "~3.18.0",
     "react-native-shared-element": "0.8.4",
     "react-navigation": "^4.4.4",
->>>>>>> b5bd348e68ae3d77cf95292d135bd54ed45d8eee
-    "react-navigation-shared-element": "^3.1.3"
+    "react-navigation-shared-element": "^3.1.3",
+    "expo-linear-gradient": "~12.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
