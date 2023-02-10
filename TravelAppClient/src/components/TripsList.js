@@ -5,7 +5,6 @@ import FavouriteButton from "./FavouriteButton";
 import { useNavigation } from "@react-navigation/native";
 import FavouriteButton from "../components/shared/FavoriteButton";
 
-
 const CARD_WIDTH = sizes.width / 2 - (spacing.l + spacing.l / 2);
 const CARD_HEIGHT = 220;
 
@@ -18,15 +17,15 @@ const TripsList = ({ list }) => {
           <TouchableOpacity
             style={styles.cardContainer}
             key={item.id}
-            onPress={() => navigation.navigate("TripDetails", { trip: item })}
-          >
+            onPress={() => {navigation.navigate("TripDetails", { trip: item })}
+        }>
             <View style={(styles.card, shadow.light)}>
               <SharedElement id={`trip.${item.id}.image`}>
                 <View style={styles.imageBox}>
                   <Image style={styles.image} source={item.index} />
                 </View>
               </SharedElement>
-          <TouchableOpacity style={styles.cardContainer}>
+              </View>
             <View style={(styles.card, shadow.light)} key={item.id}>
               <View style={styles.imageBox}>
                 <Image style={styles.image} source={item.image} />
