@@ -8,7 +8,7 @@ import {
   Image,
 } from "react-native";
 import { colors, shadow, sizes, spacing } from "../constants/theme";
-import FavouriteButton from "./FavouriteButton";
+
 import { useNavigation } from "@react-navigation/native";
 import { SharedElement } from "react-navigation-shared-element";
 import FavoriteButton from "./shared/FavoriteButton";
@@ -30,15 +30,28 @@ const TopPlacesCarousel = ({ list }) => {
       renderItem={({ item, index: number }) => {
         return (
           <TouchableOpacity
-            onPress={() => navigation.navigate("TripDetails", { trip: item })}
+            onPress={() => {
+              navigation.navigate("TripDetails", { trip: item });
+            }}
             style={{
               marginLeft: spacing.l,
               //marginRight: index === list.length - 1 ? spacing.l : 0,
             }}
           >
             <View style={[styles.card, shadow.dark]}>
-              <FavouriteButton style={styles.favourite} />
+              <FavoriteButton style={styles.favourite} />
               <SharedElement id={`trip.${item.id}.image`}>
+                <View style={styles.imageBox}>
+                  <Image source={item.image} style={styles.image} />
+                  <Text>{item.title}</Text>
+                </View>
+              </SharedElement>
+
+              <FavoriteButton style={styles.favourite} />
+              <SharedElement
+                id={`trip.${item.id}.image`}
+                style={StyleSheet.absoluteFillObject}
+              >
                 <View style={styles.imageBox}>
                   <Image source={item.image} style={styles.image} />
                   <Text>{item.title}</Text>

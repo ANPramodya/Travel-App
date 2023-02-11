@@ -14,7 +14,9 @@ const HomeNavigator = () => {
           headerShown: false,
           useNativeDriver: true,
         }}
-      />
+
+      ></Stack.Screen>
+
     </Stack.Navigator>
   );
 };
