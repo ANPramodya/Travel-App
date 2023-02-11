@@ -1,17 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Text, View, StyleSheet, TextInput } from 'react-native';
 import { colors } from '../../constants/theme';
 import Animated from 'react-native-reanimated';
 
 
 const LoginForm = (props) => {
+  const [isRegistering, setIsRegistering] = useState(false);
+
   return (
     <Animated.View style={[styles.formInputContainer, props.animation]}>
                 <TextInput placeholder='Email' placeholderTextColor='black' style={styles.textInput}/>
-                <TextInput placeholder='Full Name' placeholderTextColor='black' style={styles.textInput}/>
+                {isRegistering && (
+                  <TextInput placeholder='Full Name' placeholderTextColor='black' style={styles.textInput}/>
+                )}
                 <TextInput placeholder='Password' placeholderTextColor='black' style={styles.textInput}/>
                 <View style={styles.formButton}>
-                    <Text style={styles.buttonText}>LOG IN</Text>
+                    <Text style={styles.buttonText}>{isRegistering ? 'REGISTER' : 'LOGIN'}</Text>
                 </View>
             </Animated.View>
   );

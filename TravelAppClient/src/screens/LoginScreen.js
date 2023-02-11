@@ -1,14 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Text, View, StyleSheet, Dimensions, TextInput, Pressable } from 'react-native';
 import { colors } from '../constants/theme';
 import Svg, {Image, Ellipse, ClipPath} from 'react-native-svg';
-import LoginForm from '../components/Login/LoginForm';
-import Animated, {useSharedValue, useAnimatedStyle, interpolate, withTiming, withDelay} from 'react-native-reanimated';
+import Animated, {useSharedValue, useAnimatedStyle, interpolate, withTiming, withDelay, runOnJS} from 'react-native-reanimated';
 
 const {height, width} = Dimensions.get('window');
 
 const LoginScreen = () => {
   const imagePosition = useSharedValue(1);
+  const [isRegistering, setIsRegistering] = useState(false);
 
   const imageAnimatedStyle = useAnimatedStyle(()=>{
     const interpolation = interpolate(imagePosition.value, [0,1], [-height/1.6,0]);
@@ -40,10 +40,17 @@ const LoginScreen = () => {
   })
 
   const loginHandler = () => {
-  imagePosition.value = 0
+  imagePosition.value = 0;
+   if(isRegistering) {
+    runOnJS(setIsRegistering)(false)
+   }
   }
   const registerHandler = () => {
-  imagePosition.value = 0
+  imagePosition.value = 0;
+  if(!isRegistering) {
+    runOnJS(setIsRegistering)(true)
+
+   }
   }
 
   return (
@@ -73,8 +80,16 @@ const LoginScreen = () => {
                 <Text style={styles.buttonText}>REGISTER</Text>
             </Pressable>
           </Animated.View>
-
-            <LoginForm animation = {formAnimatedStyle} />
+          <Animated.View style={[styles.formInputContainer, formAnimatedStyle]}>
+                <TextInput placeholder='Email' placeholderTextColor='black' style={styles.textInput}/>
+                {isRegistering && (
+                  <TextInput placeholder='Full Name' placeholderTextColor='black' style={styles.textInput}/>
+                )}
+                <TextInput placeholder='Password' placeholderTextColor='black' style={styles.textInput}/>
+                <View style={styles.formButton}>
+                    <Text style={styles.buttonText}>{isRegistering ? 'REGISTER' : 'LOGIN'}</Text>
+                </View>
+            </Animated.View>
         </View>
     </View>
   );
@@ -122,6 +137,39 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 20,
     top: -20,
+  },
+  textInput: {
+    height: 50,
+    borderWidth: 1,
+    borderColor: "rgba(0,0,0,0.2)",
+    marginHorizontal:20,
+    marginVertical: 10,
+    borderRadius: 10,
+    paddingLeft: 10
+  },
+  formButton: {
+    backgroundColor: colors.buttonDark,
+    height: 55,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 20,
+    marginHorizontal: 50,
+    marginVertical: 10,
+
+    shadowColor: '#000',
+    shadowOffset: {
+        width:0,
+        height:4,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation:5,
+  },
+  formInputContainer: {
+    marginBottom: 80,
+    ...StyleSheet.absoluteFill,
+    zIndex: -1,
+    justifyContent: 'center'
   },
 });
 
