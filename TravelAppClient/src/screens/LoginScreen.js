@@ -25,6 +25,14 @@ const LoginScreen = () => {
     };
   });
 
+  const closeButtonContainerStyle = useAnimatedStyle(()=>{
+    const interpolation = interpolate(imagePosition.value, [0,1], [180,360])
+    return {
+      opacity: withTiming(imagePosition.value === 1 ? 0 : 1, {duration:800}),
+      transform: [{rotate: withTiming(interpolation+ 'deg', {duration:1000})}]
+    }
+  })
+
   const loginHandler = () => {
   imagePosition.value = 0
   }
@@ -42,9 +50,9 @@ const LoginScreen = () => {
           </ClipPath>
             <Image href={require('../../assets/images/bg-image.jpg')} width={width+100} height={height+100} preserveAspectRatio="xMidYMid slice" clipPath='url(#clipPathId)' />
         </Svg>
-        <View style={styles.closeButtonContainer}>
-            <Text>X</Text>
-        </View>
+        <Animated.View style={[styles.closeButtonContainer, closeButtonContainerStyle]}>
+            <Text onPress={()=> imagePosition.value=1}>X</Text>
+        </Animated.View>
         </Animated.View>
 
         <View style={styles.bottomContainer}>
