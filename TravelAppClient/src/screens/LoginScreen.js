@@ -1,33 +1,53 @@
 import React from 'react';
-import { Text, View, StyleSheet, Dimensions, TextInput } from 'react-native';
+import { Text, View, StyleSheet, Dimensions, TextInput, Pressable } from 'react-native';
 import { colors } from '../constants/theme';
-import Svg, {Image} from 'react-native-svg';
+import Svg, {Image, Ellipse, ClipPath} from 'react-native-svg';
 import LoginForm from '../components/Login/LoginForm';
+import Animated, {useSharedValue, useAnimatedStyle, interpolate, withTiming} from 'react-native-reanimated';
 
 const {height, width} = Dimensions.get('window');
 
 const LoginScreen = () => {
+  const imagePosition = useSharedValue(1);
+
+  const imageAnimatedStyle = useAnimatedStyle(()=>{
+    const interpolation = interpolate(imagePosition.value, [0,1], [-height/2,0])
+    return {
+      transform: [{translateY: withTiming(interpolation, {duration:1000})}]
+    }
+  })
+
+  const loginHandler = () => {
+  imagePosition.value = 0
+  }
+  const registerHandler = () => {
+  imagePosition.value = 0
+  }
+
   return (
     <View style={styles.container}>
-        <View style={StyleSheet.absoluteFill}> 
+        <Animated.View style={[StyleSheet.absoluteFill, imageAnimatedStyle]}> 
 
-        <Svg height={height/2} width={width}>
-            <Image href={require('../../assets/images/bg-image.jpg')} width={width} height={height} preserveAspectRatio="xMidYMid slice" />
+        <Svg height={height+100} width={width}>
+          <ClipPath id='clipPathId'>
+            <Ellipse cx={width/2} rx={height} ry={height+100}/>
+          </ClipPath>
+            <Image href={require('../../assets/images/bg-image.jpg')} width={width+100} height={height+100} preserveAspectRatio="xMidYMid slice" clipPath='url(#clipPathId)' />
         </Svg>
         <View style={styles.closeButtonContainer}>
             <Text>X</Text>
         </View>
-        </View>
+        </Animated.View>
 
         <View style={styles.bottomContainer}>
-            {/* <View style={styles.button}>
-                <Text style={styles.buttonText}>LOG IN</Text>
-            </View>
-            <View style={styles.button}>
+            <Pressable style={styles.button} onPress={loginHandler}>
+                <Text style={styles.buttonText}>LOGIN</Text>
+            </Pressable>
+            <Pressable style={styles.button} onPress={registerHandler}>
                 <Text style={styles.buttonText}>REGISTER</Text>
-            </View> */}
+            </Pressable>
 
-            <LoginForm/>
+            {/* <LoginForm/> */}
         </View>
     </View>
   );
@@ -73,7 +93,8 @@ const styles = StyleSheet.create({
     shadowRadius: 6.27,
     elevation:1,
     backgroundColor: 'white',
-    borderRadius: 20
+    borderRadius: 20,
+    top: -20,
   },
 });
 
