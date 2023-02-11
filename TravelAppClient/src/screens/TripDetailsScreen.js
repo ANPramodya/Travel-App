@@ -3,9 +3,11 @@ import { View, StyleSheet } from "react-native";
 import { colors, shadow, sizes, spacing } from "../constants/theme";
 import Icon from "../components/shared/Icon";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import TripDetailsCard from "../components/TripDetails/TripDetailsCard/TripDetailsCard";
+
+import TripDetailsCard from "../components/TripDetailsCard";
 import * as Animatable from "react-native-animatable";
-import TripDetailsCarousel from "../components/TripDetails/TripDetailsCarousel";
+import TripDetailsCarousel from "../components/TripDetailsCarousel";
+
 import FavoriteButton from "../components/shared/FavoriteButton";
 
 const TripDetailsScreen = ({ navigation, route }) => {
