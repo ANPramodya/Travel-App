@@ -12,7 +12,9 @@ export const colors = {
   darkGradient: '#09C6F9',
   lightGradient: '#045DE9',
   midgradient: '#0095FF',
-  darkGray:'#666666'
+  darkGray:'#666666',
+  buttonLight: "#f1a784",
+  buttonDark: "#db6f14"
 };
 
 export const shadow = {
