@@ -14,6 +14,9 @@ const LoginScreen = () => {
         <Svg height={height/2} width={width}>
             <Image href={require('../../assets/images/bg-image.jpg')} width={width} height={height} preserveAspectRatio="xMidYMid slice" />
         </Svg>
+        <View style={styles.closeButtonContainer}>
+            <Text>X</Text>
+        </View>
         </View>
 
         <View style={styles.bottomContainer}>
@@ -54,6 +57,23 @@ const styles = StyleSheet.create({
   bottomContainer:{
     justifyContent: 'center',
     height: height/3
+  },
+  closeButtonContainer: {
+    height: 40,
+    width: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+        width:0,
+        height:5,
+    },
+    shadowOpacity: 0.34,
+    shadowRadius: 6.27,
+    elevation:1,
+    backgroundColor: 'white',
+    borderRadius: 20
   },
 });
 
