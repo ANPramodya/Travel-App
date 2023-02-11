@@ -8,7 +8,6 @@ import { createSharedElementStackNavigator } from "react-navigation-shared-eleme
 
 const Stack = createSharedElementStackNavigator();
 
-
 const MainNavigator = () => {
   return (
     <NavigationContainer>
@@ -24,16 +23,13 @@ const MainNavigator = () => {
           }}
         />
         <Stack.Screen
-
           name="TripDetails"
-
           component={TripDetailsScreen}
           options={{
             headerShown: false,
             useNativeDriver: true,
 
             cardStyleInterpolator: ({ current: { progress } }) => ({
-
               cardStyle: {
                 opacity: progress,
               },
