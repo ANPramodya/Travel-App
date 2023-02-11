@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, Dimensions, TextInput, Pressable } from 'react-
 import { colors } from '../constants/theme';
 import Svg, {Image, Ellipse, ClipPath} from 'react-native-svg';
 import LoginForm from '../components/Login/LoginForm';
-import Animated, {useSharedValue, useAnimatedStyle, interpolate, withTiming} from 'react-native-reanimated';
+import Animated, {useSharedValue, useAnimatedStyle, interpolate, withTiming, withDelay} from 'react-native-reanimated';
 
 const {height, width} = Dimensions.get('window');
 
@@ -11,7 +11,7 @@ const LoginScreen = () => {
   const imagePosition = useSharedValue(1);
 
   const imageAnimatedStyle = useAnimatedStyle(()=>{
-    const interpolation = interpolate(imagePosition.value, [0,1], [-height/2,0]);
+    const interpolation = interpolate(imagePosition.value, [0,1], [-height/1.6,0]);
     return {
       transform: [{translateY: withTiming(interpolation, {duration:1000})}]
     };
@@ -30,6 +30,12 @@ const LoginScreen = () => {
     return {
       opacity: withTiming(imagePosition.value === 1 ? 0 : 1, {duration:800}),
       transform: [{rotate: withTiming(interpolation+ 'deg', {duration:1000})}]
+    }
+  })
+
+  const formAnimatedStyle = useAnimatedStyle(()=>{
+    return {
+      opacity: imagePosition.value === 0 ? withDelay(400, withTiming(1, {duration:800})) : withTiming(0, {duration:300})
     }
   })
 
@@ -68,7 +74,7 @@ const LoginScreen = () => {
             </Pressable>
           </Animated.View>
 
-            {/* <LoginForm/> */}
+            <LoginForm animation = {formAnimatedStyle} />
         </View>
     </View>
   );

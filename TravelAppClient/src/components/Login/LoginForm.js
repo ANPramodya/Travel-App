@@ -1,18 +1,19 @@
 import React from 'react';
 import { Text, View, StyleSheet, TextInput } from 'react-native';
 import { colors } from '../../constants/theme';
+import Animated from 'react-native-reanimated';
 
 
-const LoginForm = () => {
+const LoginForm = (props) => {
   return (
-    <View style={styles.formInputContainer}>
+    <Animated.View style={[styles.formInputContainer, props.animation]}>
                 <TextInput placeholder='Email' placeholderTextColor='black' style={styles.textInput}/>
                 <TextInput placeholder='Full Name' placeholderTextColor='black' style={styles.textInput}/>
                 <TextInput placeholder='Password' placeholderTextColor='black' style={styles.textInput}/>
                 <View style={styles.formButton}>
                     <Text style={styles.buttonText}>LOG IN</Text>
                 </View>
-            </View>
+            </Animated.View>
   );
 };
 
@@ -45,7 +46,10 @@ const styles = StyleSheet.create({
         elevation:5,
       },
       formInputContainer: {
-        marginBottom: 80
+        marginBottom: 80,
+        ...StyleSheet.absoluteFill,
+        zIndex: -1,
+        justifyContent: 'center'
       },
 });
 
