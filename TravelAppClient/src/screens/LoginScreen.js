@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, View, StyleSheet, Dimensions, TextInput } from 'react-native';
 import { colors } from '../constants/theme';
 import Svg, {Image} from 'react-native-svg';
+import LoginForm from '../components/Login/LoginForm';
 
 const {height, width} = Dimensions.get('window');
 
@@ -16,12 +17,14 @@ const LoginScreen = () => {
         </View>
 
         <View style={styles.bottomContainer}>
-            <View style={styles.button}>
+            {/* <View style={styles.button}>
                 <Text style={styles.buttonText}>LOG IN</Text>
             </View>
             <View style={styles.button}>
                 <Text style={styles.buttonText}>REGISTER</Text>
-            </View>
+            </View> */}
+
+            <LoginForm/>
         </View>
     </View>
   );
@@ -51,7 +54,6 @@ const styles = StyleSheet.create({
   bottomContainer:{
     justifyContent: 'center',
     height: height/3
-
   },
 });
 
