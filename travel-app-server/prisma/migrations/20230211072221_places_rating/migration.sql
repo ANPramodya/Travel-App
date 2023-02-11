@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Place" ALTER COLUMN "rating" SET DATA TYPE TEXT;

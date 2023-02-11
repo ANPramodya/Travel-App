@@ -15,9 +15,85 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  email String @unique
-  hash  String
+  email  String  @unique
+  hash   String
+  avatar String?
 
   firstName String?
   lastName  String?
+
+  reviews Review[]
+}
+
+model Review {
+  id         String    @id @default(uuid())
+  createdAt  DateTime  @default(now())
+  author     User      @relation(fields: [authorId], references: [id])
+  topPlace   TopPlace? @relation(fields: [topPlaceId], references: [id])
+  topPlaceId String?
+  place      Place?    @relation(fields: [placeId], references: [id])
+  placeId    String?
+  authorId   String
+  rating     Float
+  text       String
+}
+
+model Hotel {
+  id          String @id @default(uuid())
+  title       String
+  image       String
+  location    String
+  rating      String
+  pricePerDay String
+  type        String
+}
+
+model TopPlace {
+  id          String           @id @default(uuid())
+  image       String
+  title       String
+  location    String
+  description String
+  rating      String
+  gallery     TopPlacesImage[]
+  reviews     Review[]
+  type        String
+}
+
+model TopPlacesImage {
+  id         String   @id @default(uuid())
+  imageUrl   String
+  topPlace   TopPlace @relation(fields: [topPlaceId], references: [id])
+  topPlaceId String
+}
+
+model Place {
+  id          String        @id @default(uuid())
+  image       String
+  title       String
+  location    String
+  description String
+  rating      String
+  gallery     PlacesImage[]
+  reviews     Review[]
+  type        String
+}
+
+model PlacesImage {
+  id       String @id @default(uuid())
+  imageUrl String
+  place    Place  @relation(fields: [placeId], references: [id])
+  placeId  String
+}
+
+model travel {
+  id              String @id @default(uuid())
+  username        String
+  picture         String
+  location        String
+  aboutMe         String
+  distance        String
+  followersCount  Int
+  followingSCount Int
+  trips           Int
 }

@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Hotel" ALTER COLUMN "rating" SET DATA TYPE TEXT;
