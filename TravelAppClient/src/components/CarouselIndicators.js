@@ -1,3 +1,4 @@
+
 import { React, useRef, useMemo } from "react";
 import { View, StyleSheet, Animated } from "react-native";
 import { colors, sizes } from "../constants/theme";
@@ -34,6 +35,7 @@ const CarouselIndicators = ({
   );
 
   return (
+
     <View style={styles.container}>
       {slides.map((_, index) => {
         return (
@@ -72,6 +74,7 @@ const CarouselIndicators = ({
         ]}
       />
     </View>
+
   );
 };
 
@@ -97,3 +100,4 @@ const styles = StyleSheet.create({
 });
 
 export default CarouselIndicators;
+

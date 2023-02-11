@@ -10,7 +10,6 @@ import LoginScreen from "../screens/LoginScreen";
 
 const Stack = createSharedElementStackNavigator();
 
-
 const MainNavigator = () => {
   return (
     <NavigationContainer>
@@ -26,16 +25,13 @@ const MainNavigator = () => {
           }}
         />
         <Stack.Screen
-
           name="TripDetails"
-
           component={TripDetailsScreen}
           options={{
             headerShown: false,
             useNativeDriver: true,
 
             cardStyleInterpolator: ({ current: { progress } }) => ({
-
               cardStyle: {
                 opacity: progress,
               },

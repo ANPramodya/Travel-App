@@ -1,3 +1,4 @@
+
 import React, { useRef } from "react";
 import { View, StyleSheet, Image, Animated } from "react-native";
 import { sizes } from "../constants/theme";
@@ -6,6 +7,7 @@ import CarouselIndicators from "../components/CarouselIndicators";
 import * as Animatable from "react-native-animatable";
 
 const TripDetailsCarousel = ({ slides, id }) => {
+
   const scrollAnimated = useRef(new Animated.Value(0)).current;
   return (
     <>
@@ -15,10 +17,12 @@ const TripDetailsCarousel = ({ slides, id }) => {
         pagingEnabled
         bounces={false}
         onScroll={Animated.event(
+
           [{ nativeEvent: { contentOffset: { x: scrollAnimated } } }],
           { useNativeDriver: false }
         )}
         renderItem={({ item: image, index }) => {
+
           if (!index) {
             return (
               <View style={styles.slide}>
@@ -41,8 +45,10 @@ const TripDetailsCarousel = ({ slides, id }) => {
           animation="fadeInUp"
           delay={550}
           duration={400}
+
           easing="ease-in-out"
         >
+
           <CarouselIndicators
             slidesCount={slides.length}
             slideWidth={sizes.width}
@@ -64,6 +70,7 @@ const styles = StyleSheet.create({
   image: {
     width: sizes.width,
     height: sizes.height,
+
     resizeMode: "cover",
   },
   indicators: {
@@ -71,6 +78,7 @@ const styles = StyleSheet.create({
     width: sizes.width,
     bottom: 60,
     alignItems: "center",
+
   },
 });
 

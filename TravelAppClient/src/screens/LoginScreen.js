@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import {
   Text,
@@ -19,6 +20,7 @@ import Animated, {
 } from "react-native-reanimated";
 
 const { height, width } = Dimensions.get("window");
+
 
 const LoginScreen = () => {
   const imagePosition = useSharedValue(1);
@@ -138,6 +140,7 @@ const LoginScreen = () => {
           </View>
         </Animated.View>
       </View>
+
     </View>
   );
 };
@@ -146,29 +149,36 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.light,
+
     justifyContent: "flex-end",
+
   },
   button: {
     backgroundColor: colors.buttonDark,
     height: 55,
+
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 20,
     marginHorizontal: 50,
     marginVertical: 10,
+
   },
   buttonText: {
     fontSize: 18,
     fontWeight: "600",
+
     color: colors.white,
   },
   bottomContainer: {
     justifyContent: "center",
     height: height / 3,
+
   },
   closeButtonContainer: {
     height: 40,
     width: 40,
+
     justifyContent: "center",
     alignItems: "center",
     alignSelf: "center",
@@ -181,6 +191,7 @@ const styles = StyleSheet.create({
     shadowRadius: 6.27,
     elevation: 1,
     backgroundColor: "white",
+
     borderRadius: 20,
     top: -20,
   },
@@ -188,16 +199,20 @@ const styles = StyleSheet.create({
     height: 50,
     borderWidth: 1,
     borderColor: "rgba(0,0,0,0.2)",
+
     marginHorizontal: 20,
     marginVertical: 10,
     borderRadius: 10,
     paddingLeft: 10,
+
   },
   formButton: {
     backgroundColor: colors.buttonDark,
     height: 55,
+
     alignItems: "center",
     justifyContent: "center",
+
     borderRadius: 20,
     marginHorizontal: 50,
     marginVertical: 10,
@@ -210,12 +225,15 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
+
   },
   formInputContainer: {
     marginBottom: 80,
     ...StyleSheet.absoluteFill,
     zIndex: -1,
+
     justifyContent: "center",
+
   },
 });
 

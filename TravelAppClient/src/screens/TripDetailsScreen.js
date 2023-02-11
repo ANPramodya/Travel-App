@@ -1,17 +1,19 @@
 import React from "react";
-import { View, StyleSheet, Image } from "react-native";
-
-import { sizes, spacing, colors } from "../constants/theme";
-
+import { View, StyleSheet } from "react-native";
+import { colors, shadow, sizes, spacing } from "../constants/theme";
+import Icon from "../components/shared/Icon";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+
 import TripDetailsCard from "../components/TripDetailsCard";
 import * as Animatable from "react-native-animatable";
 import TripDetailsCarousel from "../components/TripDetailsCarousel";
+
 import FavoriteButton from "../components/shared/FavoriteButton";
 
 const TripDetailsScreen = ({ navigation, route }) => {
   const insets = useSafeAreaInsets();
   const { trip } = route.params;
+  const slides = [trip.image, ...trip.gallery];
   return (
     <View style={styles.container}>
       <Animatable.View
@@ -22,22 +24,22 @@ const TripDetailsScreen = ({ navigation, route }) => {
         easing="ease-in-out"
       >
         <Icon
-          icon="ArrowLeft"
-          style={styles.backIcon}
+          icon="Back"
+          viewStyle={styles.backIcon}
+          size={24}
           onPress={navigation.goBack}
         />
       </Animatable.View>
-      <SharedElement
-        id={`trip.${trip.id}.image`}
-        style={StyleSheet.absoluteFillObject}
+      <Animatable.View
+        style={[styles.favoriteButton, { marginTop: insets.top }]}
+        animation="fadeIn"
+        delay={500}
+        duration={400}
+        easing="ease-in-out"
       >
-        <View style={[StyleSheet.absoluteFillObject, styles.imageBox]}>
-          <Image
-            source={trip.image}
-            style={[StyleSheet.absoluteFillObject, styles.image]}
-          />
-        </View>
-      </SharedElement>
+        <FavoriteButton onPress={() => {}} />
+      </Animatable.View>
+      <TripDetailsCarousel slides={slides} id={trip.id} />
       <TripDetailsCard trip={trip} />
     </View>
   );
@@ -71,7 +73,15 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   backIcon: {
-    tintColor: colors.white,
+    backgroundColor: colors.white,
+    padding: 4,
+    borderRadius: sizes.radius,
+    ...shadow.light,
+  },
+  favoriteButton: {
+    position: "absolute",
+    right: spacing.l,
+    zIndex: 1,
   },
 });
 

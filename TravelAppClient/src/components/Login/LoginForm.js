@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Text, View, StyleSheet, TextInput, Pressable } from "react-native";
 import { colors } from "../../constants/theme";
@@ -40,10 +41,12 @@ const LoginForm = (props) => {
         </View>
       </Pressable>
     </Animated.View>
+
   );
 };
 
 const styles = StyleSheet.create({
+
   textInput: {
     height: 50,
     borderWidth: 1,
@@ -77,6 +80,7 @@ const styles = StyleSheet.create({
     zIndex: -1,
     justifyContent: "center",
   },
+
 });
 
 export default LoginForm;
