@@ -5,6 +5,7 @@ import SearchScreen from "./src/screens/SearchScreen";
 
 const App = () => {
   return <MainNavigator />;
+  //return <LoginScreen/>;
 };
 
 export default App;

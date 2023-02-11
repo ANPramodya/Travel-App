@@ -7,8 +7,6 @@ import { useNavigation } from "@react-navigation/native";
 import FavoriteButton from "../components/shared/FavoriteButton";
 import { SharedElement } from "react-navigation-shared-element";
 
-
-
 const CARD_WIDTH = sizes.width / 2 - (spacing.l + spacing.l / 2);
 const CARD_HEIGHT = 220;
 
@@ -77,6 +75,7 @@ const styles = StyleSheet.create({
   image: {
     width: CARD_WIDTH,
     height: CARD_HEIGHT - 60,
+
     resizeMode: "cover",
   },
   footer: {

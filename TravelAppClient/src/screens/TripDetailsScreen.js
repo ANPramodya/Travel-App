@@ -4,12 +4,10 @@ import { View, StyleSheet, Image } from "react-native";
 import { sizes, spacing, colors } from "../constants/theme";
 
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { SharedElement } from "react-navigation-shared-element";
 import TripDetailsCard from "../components/TripDetailsCard";
 import * as Animatable from "react-native-animatable";
-
-import Icon from "../components/shared/Icon";
-
+import TripDetailsCarousel from "../components/TripDetailsCarousel";
+import FavoriteButton from "../components/shared/FavoriteButton";
 
 const TripDetailsScreen = ({ navigation, route }) => {
   const insets = useSafeAreaInsets();
