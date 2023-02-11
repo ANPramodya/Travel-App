@@ -11,11 +11,19 @@ const LoginScreen = () => {
   const imagePosition = useSharedValue(1);
 
   const imageAnimatedStyle = useAnimatedStyle(()=>{
-    const interpolation = interpolate(imagePosition.value, [0,1], [-height/2,0])
+    const interpolation = interpolate(imagePosition.value, [0,1], [-height/2,0]);
     return {
       transform: [{translateY: withTiming(interpolation, {duration:1000})}]
-    }
-  })
+    };
+  });
+
+  const buttonsAnimatedStyle = useAnimatedStyle(()=>{
+    const interpolation = interpolate(imagePosition.value, [0,1], [250,0]);
+    return {
+      opacity: withTiming(imagePosition.value, {duration:500}),
+      transform: [{translateY: withTiming(interpolation, {duration:1000})}]
+    };
+  });
 
   const loginHandler = () => {
   imagePosition.value = 0
@@ -40,12 +48,17 @@ const LoginScreen = () => {
         </Animated.View>
 
         <View style={styles.bottomContainer}>
+          <Animated.View style={buttonsAnimatedStyle}>
             <Pressable style={styles.button} onPress={loginHandler}>
                 <Text style={styles.buttonText}>LOGIN</Text>
             </Pressable>
+          </Animated.View>
+
+          <Animated.View style={buttonsAnimatedStyle}>
             <Pressable style={styles.button} onPress={registerHandler}>
                 <Text style={styles.buttonText}>REGISTER</Text>
             </Pressable>
+          </Animated.View>
 
             {/* <LoginForm/> */}
         </View>
