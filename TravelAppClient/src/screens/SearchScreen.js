@@ -6,6 +6,7 @@ import SearchInput from '../components/Search/SearchInput';
 import Tabs from '../components/shared/Tabs';
 import SearchMasonry from '../components/Search/SearchMasonry';
 import { SEARCH_ALL, SEARCH_HOTELS, SEARCH_PLACES } from '../data';
+import MainHeader from '../components/MainHeader';
 
 const tabs = [
   {
@@ -25,6 +26,7 @@ const tabs = [
 const SearchScreen = () => {
   return (
     <View style={styles.container}>
+      <MainHeader/>
       <SearchInput />
       <Tabs items={tabs} />
     </View>
